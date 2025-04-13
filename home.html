@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MetiAlpha - Premium Forex Education</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Home Page Specific Styles */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin: 5rem 0;
+    }
+    
+    .feature-card {
+      text-align: center;
+    }
+    
+    .feature-icon {
+      font-size: 2.5rem;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+    }
+    
+    .feature-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    
+    .trading-view-widget {
+      margin: 5rem 0;
+    }
+    
+    .price-action-container {
+      border-radius: 8px;
+      overflow: hidden;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="overlay">
+    <nav>
+      <a href="index.html" class="nav-logo">
+        <i class="fas fa-chart-line"></i>
+        <span>MetiAlpha</span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html" class="nav-link active"><i class="fas fa-home"></i> Home</a>
+        <a href="about.html" class="nav-link"><i class="fas fa-info-circle"></i> About</a>
+        <a href="education.html" class="nav-link"><i class="fas fa-graduation-cap"></i> Education</a>
+        <a href="strategies.html" class="nav-link"><i class="fas fa-chess"></i> Strategies</a>
+        <a href="tools.html" class="nav-link"><i class="fas fa-tools"></i> Tools</a>
+        <a href="login.html" class="nav-link nav-cta"><i class="fas fa-sign-in-alt"></i> Login</a>
+      </div>
+    </nav>
+    
+    <section class="hero">
+      <div class="container">
+        <h1>Master the Gold Market with Precision</h1>
+        <p class="subtitle">Unlock professional <span class="highlight">XAU/USD</span> trading strategies used by institutional traders during the New York session</p>
+        <a href="strategies.html" class="btn btn-primary">Discover Our Methods <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </section>
+
+    <div class="container">
+      <div class="features-grid">
+        <div class="feature-card card">
+          <div class="feature-icon"><i class="fas fa-chart-candlestick"></i></div>
+          <h3>Live Session Tracking</h3>
+          <p>Real-time New York session phase analysis with institutional flow detection</p>
+        </div>
+        
+        <div class="feature-card card">
+          <div class="feature-icon"><i class="fas fa-graduation-cap"></i></div>
+          <h3>Professional Education</h3>
+          <p>Bank-grade trading frameworks distilled into actionable lessons</p>
+        </div>
+        
+        <div class="feature-card card">
+          <div class="feature-icon"><i class="fas fa-robot"></i></div>
+          <h3>Smart Tools</h3>
+          <p>Algorithmic assistants that identify high-probability setups</p>
+        </div>
+      </div>
+
+      <div class="trading-view-widget">
+        <h2><i class="fas fa-coins"></i> Live XAU/USD Price Action</h2>
+        <div class="price-action-container card">
+          <iframe src="https://s.tradingview.com/embed-widget/mini-symbol-overview/?locale=en#%7B%22symbol%22%3A%22OANDA%3AXAUUSD%22%2C%22width%22%3A%22100%25%22%2C%22height%22%3A%22100%25%22%2C%22dateRange%22%3A%2212M%22%2C%22colorTheme%22%3A%22dark%22%2C%22trendLineColor%22%3A%22rgba(255%2C%20215%2C%200%2C%201)%22%2C%22fontColor%22%3A%22rgba(255%2C%20255%2C%20255%2C%200.9)%22%7D" style="height: 400px;"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

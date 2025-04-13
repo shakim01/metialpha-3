@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trading Strategies - MetiAlpha</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Strategies Page Specific Styles */
+    .strategy-hero {
+      background: linear-gradient(135deg, rgba(52, 152, 219, 0.1), rgba(243, 156, 18, 0.1));
+    }
+    
+    .strategy-accordion {
+      max-width: 900px;
+      margin: 3rem auto;
+    }
+    
+    .strategy-item {
+      margin-bottom: 20px;
+    }
+    
+    .strategy-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem;
+      cursor: pointer;
+      background-color: rgba(0, 0, 0, 0.3);
+      border-radius: 8px;
+      transition: all 0.3s;
+    }
+    
+    .strategy-header:hover {
+      background-color: rgba(0, 0, 0, 0.4);
+    }
+    
+    .difficulty-badge {
+      padding: 5px 10px;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+    
+    .intermediate {
+      background-color: var(--accent);
+      color: var(--dark);
+    }
+    
+    .advanced {
+      background-color: var(--danger);
+      color: white;
+    }
+    
+    .strategy-content {
+      padding: 1.5rem;
+      background-color: rgba(0, 0, 0, 0.2);
+      border-radius: 0 0 8px 8px;
+      display: none;
+    }
+    
+    .strategy-item.active .strategy-content {
+      display: block;
+    }
+    
+    .strategy-content ol {
+      margin-left: 20px;
+      margin-bottom: 1.5rem;
+    }
+    
+    .strategy-meta {
+      display: flex;
+      gap: 20px;
+      margin-top: 1.5rem;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="overlay">
+    <nav>
+      <a href="index.html" class="nav-logo">
+        <i class="fas fa-chart-line"></i>
+        <span>MetiAlpha</span>
+      </a>
+      <div class="nav-links">
+        <a href="home.html" class="nav-link"><i class="fas fa-home"></i> Home</a>
+        <a href="about.html" class="nav-link"><i class="fas fa-info-circle"></i> About</a>
+        <a href="education.html" class="nav-link"><i class="fas fa-graduation-cap"></i> Education</a>
+        <a href="strategies.html" class="nav-link active"><i class="fas fa-chess"></i> Strategies</a>
+        <a href="tools.html" class="nav-link"><i class="fas fa-tools"></i> Tools</a>
+        <a href="login.html" class="nav-link nav-cta"><i class="fas fa-sign-in-alt"></i> Login</a>
+      </div>
+    </nav>
+    
+    <section class="hero strategy-hero">
+      <div class="container">
+        <h1>Institutional-Grade Gold Strategies</h1>
+        <p class="subtitle">Reverse-engineered from hedge fund playbooks and adapted for retail traders</p>
+      </div>
+    </section>
+    
+    <div class="container">
+      <div class="strategy-accordion">
+        <div class="strategy-item active">
+          <div class="strategy-header">
+            <h3><i class="fas fa-bolt"></i> The Opening Range Break</h3>
+            <span class="difficulty-badge intermediate">Intermediate</span>
+          </div>
+          <div class="strategy-content">
+            <p>Capture the 08:00-09:30 ET volatility with this liquidity-based approach:</p>
+            <ol>
+              <li>Identify the first 30-minute range</li>
+              <li>Wait for volume surge on breakout</li>
+              <li>Enter with 1:3 risk-reward structure</li>
+            </ol>
+            <div class="strategy-meta">
+              <span><i class="fas fa-history"></i> 72% Win Rate</span>
+              <span><i class="fas fa-chart-line"></i> 2.8 Profit Factor</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="strategy-item">
+          <div class="strategy-header">
+            <h3><i class="fas fa-moon"></i> The London Close Fade</h3>
+            <span class="difficulty-badge advanced">Advanced</span>
+          </div>
+          <div class="strategy-content">
+            <p>Exploit liquidity gaps during the 11:00 ET transition:</p>
+            <ol>
+              <li>Identify overextended moves into London close</li>
+              <li>Fade against key Fibonacci levels</li>
+              <li>Target 50% retracement</li>
+            </ol>
+            <div class="strategy-meta">
+              <span><i class="fas fa-history"></i> 65% Win Rate</span>
+              <span><i class="fas fa-chart-line"></i> 2.1 Profit Factor</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="strategy-item">
+          <div class="strategy-header">
+            <h3><i class="fas fa-umbrella"></i> The Safe Haven Hedge</h3>
+            <span class="difficulty-badge intermediate">Intermediate</span>
+          </div>
+          <div class="strategy-content">
+            <p>Capitalize on risk-off market movements:</p>
+            <ol>
+              <li>Monitor SPX 500 futures for sharp declines</li>
+              <li>Enter gold positions on confirmed flight-to-safety</li>
+              <li>Scale out at key resistance levels</li>
+            </ol>
+            <div class="strategy-meta">
+              <span><i class="fas fa-history"></i> 68% Win Rate</span>
+              <span><i class="fas fa-chart-line"></i> 2.4 Profit Factor</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <script>
+    // Accordion functionality
+    document.querySelectorAll('.strategy-header').forEach(header => {
+      header.addEventListener('click', () => {
+        const item = header.parentElement;
+        const isActive = item.classList.contains('active');
+        
+        // Close all items
+        document.querySelectorAll('.strategy-item').forEach(i => {
+          i.classList.remove('active');
+        });
+        
+        // Open clicked item if it wasn't active
+        if (!isActive) {
+          item.classList.add('active');
+        }
+      });
+    });
+  </script>
+</body>
+</html>

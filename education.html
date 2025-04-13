@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Forex Education - MetiAlpha</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Education Page Specific Styles */
+    :root {
+      --primary: #3498db;
+      --accent: #f39c12;
+      --dark: #2c3e50;
+      --light: #ecf0f1;
+      --success: #2ecc71;
+      --danger: #e74c3c;
+      --gold: #f1c40f;
+      --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #f5f7fa;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    .card {
+      background: white;
+      border-radius: 8px;
+      padding: 25px;
+      box-shadow: var(--shadow);
+      position: relative;
+      transition: transform 0.3s ease;
+    }
+    
+    .card:hover {
+      transform: translateY(-5px);
+    }
+    
+    .education-hero {
+      background: linear-gradient(135deg, rgba(52, 152, 219, 0.1), rgba(243, 156, 18, 0.1));
+      padding: 80px 0;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    
+    h1, h2, h3, h4 {
+      color: var(--dark);
+      margin-top: 0;
+    }
+    
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+    }
+    
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 30px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    h3 {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+    }
+    
+    .subtitle {
+      font-size: 1.2rem;
+      color: #7f8c8d;
+      max-width: 700px;
+      margin: 0 auto 30px;
+    }
+    
+    .course-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin: 2rem 0;
+      flex-wrap: wrap;
+    }
+    
+    .tab {
+      padding: 10px 20px;
+      border-radius: 30px;
+      cursor: pointer;
+      font-weight: 600;
+      background-color: rgba(0, 0, 0, 0.1);
+      transition: all 0.3s;
+      border: none;
+      font-size: 0.9rem;
+    }
+    
+    .tab:hover {
+      background-color: rgba(0, 0, 0, 0.2);
+    }
+    
+    .tab.active {
+      background-color: var(--accent);
+      color: white;
+    }
+    
+    .course-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin: 3rem 0;
+    }
+    
+    .course-badge {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background-color: var(--accent);
+      color: white;
+      padding: 5px 10px;
+      border-radius: 4px;
+      font-weight: 600;
+      font-size: 0.8rem;
+    }
+    
+    .course-card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .course-card ul {
+      margin-left: 20px;
+      margin-bottom: 1.5rem;
+      padding-left: 0;
+    }
+    
+    .course-card ul li {
+      margin-bottom: 8px;
+      position: relative;
+      list-style-type: none;
+      padding-left: 25px;
+    }
+    
+    .course-card ul li:before {
+      content: "•";
+      color: var(--accent);
+      font-weight: bold;
+      position: absolute;
+      left: 0;
+    }
+    
+    .course-cta {
+      display: inline-block;
+      background-color: var(--accent);
+      color: white;
+      padding: 10px 20px;
+      border-radius: 4px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s;
+      border: none;
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+    
+    .course-cta:hover {
+      background-color: #e67e22;
+      transform: translateY(-2px);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .featured {
+      border: 2px solid var(--gold);
+      position: relative;
+    }
+    
+    .featured:after {
+      content: "Featured";
+      position: absolute;
+      top: -12px;
+      left: 20px;
+      background-color: var(--gold);
+      color: var(--dark);
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-size: 0.7rem;
+      font-weight: bold;
+    }
+    
+    .webinar-section {
+      margin: 5rem 0;
+    }
+    
+    .webinar-card {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    
+    .webinar-date {
+      background-color: var(--accent);
+      color: white;
+      padding: 1.5rem 1rem;
+      border-radius: 8px;
+      text-align: center;
+      min-width: 80px;
+    }
+    
+    .webinar-date .day {
+      font-size: 2rem;
+      font-weight: 700;
+      line-height: 1;
+    }
+    
+    .webinar-date .month {
+      font-size: 1rem;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+    
+    .webinar-content {
+      flex: 1;
+      min-width: 250px;
+    }
+    
+    .webinar-content h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .webinar-cta {
+      display: inline-block;
+      margin-top: 1rem;
+      background-color: var(--success);
+      color: white;
+      padding: 10px 20px;
+      border-radius: 4px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s;
+      border: none;
+      cursor: pointer;
+    }
+    
+    .webinar-cta:hover {
+      background-color: #27ae60;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* Advanced Concepts Section */
+    .advanced-concepts {
+      margin: 5rem 0;
+    }
+    
+    .concept-card {
+      margin-bottom: 3rem;
+    }
+    
+    .concept-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1.5rem;
+      padding-bottom: 10px;
+      border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+    }
+    
+    .concept-icon {
+      font-size: 2rem;
+      margin-right: 15px;
+      color: var(--accent);
+    }
+    
+    .concept-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+    }
+    
+    @media (max-width: 768px) {
+      .concept-content {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .concept-details {
+      background: rgba(243, 156, 18, 0.1);
+      padding: 20px;
+      border-radius: 8px;
+    }
+    
+    .concept-details h4 {
+      color: var(--accent);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .concept-details h4 i {
+      font-size: 1.2rem;
+    }
+    
+    .concept-image {
+      background-color: #f8f9fa;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      text-align: center;
+    }
+    
+    .concept-image img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 4px;
+    }
+    
+    .placeholder-image {
+      width: 100%;
+      height: 200px;
+      background-color: #ddd;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #777;
+      font-weight: bold;
+    }
+    
+    .key-points {
+      margin-top: 20px;
+    }
+    
+    .key-points li {
+      margin-bottom: 10px;
+      position: relative;
+      padding-left: 25px;
+    }
+    
+    .key-points li:before {
+      content: "→";
+      color: var(--accent);
+      position: absolute;
+      left: 0;
+    }
+    
+    /* Tabs functionality */
+    .tab-content {
+      display: none;
+    }
+    
+    .tab-content.active {
+      display: block;
+      animation: fadeIn 0.5s ease;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="overlay">
+    <nav>
+      <a href="index.html" class="nav-logo">
+        <i class="fas fa-chart-line"></i>
+        <span>MetiAlpha</span>
+      </a>
+      <div class="nav-links">
+        <a href="home.html" class="nav-link"><i class="fas fa-home"></i> Home</a>
+        <a href="about.html" class="nav-link"><i class="fas fa-info-circle"></i> About</a>
+        <a href="education.html" class="nav-link active"><i class="fas fa-graduation-cap"></i> Education</a>
+        <a href="strategies.html" class="nav-link"><i class="fas fa-chess"></i> Strategies</a>
+        <a href="tools.html" class="nav-link"><i class="fas fa-tools"></i> Tools</a>
+        <a href="login.html" class="nav-link nav-cta"><i class="fas fa-sign-in-alt"></i> Login</a>
+      </div>
+    </nav>
+    
+    <section class="hero education-hero">
+      <div class="container">
+        <h1>Forex Trading Education</h1>
+        <p class="subtitle">Master professional trading concepts with our comprehensive educational resources</p>
+      </div>
+    </section>
+    
+    <div class="container">
+      <section class="courses-section">
+        <h2><i class="fas fa-atom"></i> Core Curriculum</h2>
+        
+        <div class="course-tabs">
+          <div class="tab active" data-tab="foundations">Foundations</div>
+          <div class="tab" data-tab="intermediate">Intermediate</div>
+          <div class="tab" data-tab="advanced">Advanced</div>
+        </div>
+        
+        <div class="tab-content active" id="foundations">
+          <div class="course-grid">
+            <div class="course-card card">
+              <div class="course-badge">New</div>
+              <h3><i class="fas fa-seedling"></i> Forex Fundamentals</h3>
+              <ul>
+                <li>Understanding currency pairs and pips</li>
+                <li>Market participants and liquidity</li>
+                <li>Basic chart reading techniques</li>
+                <li>Economic calendar essentials</li>
+              </ul>
+              <a href="#" class="course-cta">Enroll Now <i class="fas fa-lock-open"></i></a>
+            </div>
+            
+            <div class="course-card card">
+              <h3><i class="fas fa-shield-alt"></i> Risk Management 101</h3>
+              <ul>
+                <li>Position sizing frameworks</li>
+                <li>Understanding leverage</li>
+                <li>Setting stop losses properly</li>
+                <li>Risk-reward ratio calculation</li>
+              </ul>
+              <a href="#" class="course-cta">Enroll Now <i class="fas fa-lock-open"></i></a>
+            </div>
+            
+            <div class="course-card card">
+              <h3><i class="fas fa-chart-bar"></i> Technical Analysis Basics</h3>
+              <ul>
+                <li>Support and resistance principles</li>
+                <li>Candlestick patterns introduction</li>
+                <li>Basic indicators (MA, RSI, MACD)</li>
+                <li>Volume and price action</li>
+              </ul>
+              <a href="#" class="course-cta">Enroll Now <i class="fas fa-lock-open"></i></a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="tab-content" id="intermediate">
+          <div class="course-grid">
+            <div class="course-card card">
+              <h3><i class="fas fa-chess-knight"></i> Price Action Strategies</h3>
+              <ul>
+                <li>Pin bar trading methodology</li>
+                <li>Inside bar breakout strategies</li>
+                <li>False break recognition</li>
+                <li>Multi-timeframe analysis</li>
+              </ul>
+              <a href="#" class="course-cta">Enroll Now <i class="fas fa-lock-open"></i></a>
+            </div>
+            
+            <div class="course-card card featured">
+              <div class="course-badge">Popular</div>
+              <h3><i class="fas fa-clock"></i> Session Trading</h3>
+              <ul>
+                <li>London open strategies</li>
+                <li>NY-London overlap tactics</li>
+                <li>Asian session characteristics</li>
+                <li>Session-specific volatility</li>
+              </ul>
+              <a href="#" class="course-cta">Enroll Now <i class="fas fa-lock-open"></i></a>
+            </div>
+            
+            <div class="course-card card">
+              <h3><i class="fas fa-brain"></i> Trading Psychology</h3>
+              <ul>
+                <li>Developing discipline</li>
+                <li>Emotional control techniques</li>
+                <li>Journaling for improvement</li>
+                <li>Overcoming fear and greed</li>
+              </ul>
+              <a href="#" class="course-cta">Enroll Now <i class="fas fa-lock-open"></i></a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="tab-content" id="advanced">
+          <div class="course-grid">
+            <div class="course-card card">
+              <div class="course-badge">New</div>
+              <h3><i class="fas fa-water"></i> Liquidity Analysis</h3>
+              <ul>
+                <li>Identifying liquidity pools</li>
+                <li>Liquidity sweep patterns</li>
+                <li>Institutional order flow</li>
+                <li>Stop hunt recognition</li>
+              </ul>
+              <a href="#" class="course-cta">Enroll Now <i class="fas fa-lock-open"></i></a>
+            </div>
+            
+            <div class="course-card card featured">
+              <div class="course-badge">Bestseller</div>
+              <h3><i class="fas fa-project-diagram"></i> Market Structure</h3>
+              <ul>
+                <li>Identifying shifts in structure</li>
+                <li>Break of structure (BOS) trades</li>
+                <li>Change of character (CHOCH)</li>
+                <li>Higher timeframe alignment</li>
+              </ul>
+              <a href="#" class="course-cta">Enroll Now <i class="fas fa-lock-open"></i></a>
+            </div>
+            
+            <div class="course-card card">
+              <h3><i class="fas fa-gap"></i> Fair Value Gaps</h3>
+              <ul>
+                <li>Identifying FVGs on charts</li>
+                <li>Trading FVG retests</li>
+                <li>Multi-timeframe FVG confluence</li>
+                <li>FVG as support/resistance</li>
+              </ul>
+              <a href="#" class="course-cta">Enroll Now <i class="fas fa-lock-open"></i></a>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <section class="advanced-concepts">
+        <h2><i class="fas fa-brain"></i> Advanced Trading Concepts</h2>
+        
+        <div class="concept-card card">
+          <div class="concept-header">
+            <i class="fas fa-water concept-icon"></i>
+            <h3>Liquidity Sweep</h3>
+          </div>
+          
+          <div class="concept-content">
+            <div class="concept-details">
+              <h4><i class="fas fa-info-circle"></i> Definition</h4>
+              <p>A liquidity sweep occurs when price moves aggressively through a key level (often previous highs/lows) to trigger stop orders before reversing direction. This creates liquidity for institutional traders to enter positions at better prices.</p>
+              
+              <h4><i class="fas fa-lightbulb"></i> Key Characteristics</h4>
+              <ul class="key-points">
+                <li>Typically shows a strong, fast move through a level with increased volume</li>
+                <li>Often accompanied by wicks or long tails on candles</li>
+                <li>The reversal after the sweep tends to be equally strong</li>
+                <li>Common around London and New York session opens</li>
+                <li>Most reliable when aligned with higher timeframe structure</li>
+              </ul>
+              
+              <h4><i class="fas fa-chart-line"></i> How to Trade It</h4>
+              <ul class="key-points">
+                <li>Identify key support/resistance levels with visible stop clusters</li>
+                <li>Wait for the sweep and subsequent rejection (wick formation)</li>
+                <li>Enter on confirmation of reversal (close beyond midpoint of wick)</li>
+                <li>Place stops beyond the extreme of the sweep</li>
+                <li>Target previous swing points or equal legs</li>
+              </ul>
+            </div>
+            
+            <div class="concept-image">
+              <div class="placeholder-image">Liquidity Sweep Diagram</div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="concept-card card">
+          <div class="concept-header">
+            <i class="fas fa-project-diagram concept-icon"></i>
+            <h3>Market Structure Shift</h3>
+          </div>
+          
+          <div class="concept-content">
+            <div class="concept-details">
+              <h4><i class="fas fa-info-circle"></i> Definition</h4>
+              <p>A market structure shift (MSS) occurs when price action changes its fundamental behavior, indicating a potential reversal or significant continuation. It's characterized by the breaking of established swing points in a way that alters the trend's character.</p>
+              
+              <h4><i class="fas fa-lightbulb"></i> Key Characteristics</h4>
+              <ul class="key-points">
+                <li>Break of a significant higher high (in downtrend) or lower low (in uptrend)</li>
+                <li>Failure to create a new extreme in the direction of the trend</li>
+                <li>Often accompanied by strong momentum candles</li>
+                <li>Volume typically increases at the point of structure break</li>
+                <li>Most reliable when confirmed across multiple timeframes</li>
+              </ul>
+              
+              <h4><i class="fas fa-chart-line"></i> How to Trade It</h4>
+              <ul class="key-points">
+                <li>Identify the current market structure (higher highs/lows or lower highs/lows)</li>
+                <li>Wait for price to break the opposing swing point with conviction</li>
+                <li>Look for confirmation (close beyond the critical level)</li>
+                <li>Enter on retest of broken structure with appropriate risk management</li>
+                <li>Target previous swing points or measured moves</li>
+              </ul>
+            </div>
+            
+            <div class="concept-image">
+              <div class="placeholder-image">Market Structure Shift Diagram</div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="concept-card card">
+          <div class="concept-header">
+            <i class="fas fa-gap concept-icon"></i>
+            <h3>Fair Value Gap (FVG)</h3>
+          </div>
+          
+          <div class="concept-content">
+            <div class="concept-details">
+              <h4><i class="fas fa-info-circle"></i> Definition</h4>
+              <p>A Fair Value Gap is a three-candle imbalance pattern where the middle candle's range doesn't fully overlap with the adjacent candles, creating a "gap" in price. These zones often act as magnets for price to return and fill the imbalance.</p>
+              
+              <h4><i class="fas fa-lightbulb"></i> Key Characteristics</h4>
+              <ul class="key-points">
+                <li>Created by strong impulsive moves in price</li>
+                <li>The middle candle must have its high above both adjacent candles' highs or low below both adjacent candles' lows</li>
+                <li>More significant on higher timeframes (4H, Daily)</li>
+                <li>Often coincides with institutional order flow</li>
+                <li>Can act as support/resistance in future price action</li>
+              </ul>
+              
+              <h4><i class="fas fa-chart-line"></i> How to Trade It</h4>
+              <ul class="key-points">
+                <li>Identify FVGs after strong impulsive moves</li>
+                <li>Mark the gap area (between the wicks of the surrounding candles)</li>
+                <li>Wait for price to return to the FVG zone</li>
+                <li>Look for confirmation (rejection candles, order block confluence)</li>
+                <li>Enter with the trend, targeting the other side of the FVG</li>
+                <li>Stops should be placed beyond the FVG zone</li>
+              </ul>
+            </div>
+            
+            <div class="concept-image">
+              <div class="placeholder-image">Fair Value Gap Diagram</div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <section class="webinar-section">
+        <div class="webinar-card card">
+          <div class="webinar-date">
+            <div class="day">15</div>
+            <div class="month">JUN</div>
+          </div>
+          <div class="webinar-content">
+            <h3>Live Trading Session: Advanced Concepts in Action</h3>
+            <p>Join our senior analysts as they demonstrate liquidity sweeps, market structure shifts, and FVG trades in real-time during the London session. Includes live Q&A and trade breakdowns.</p>
+            <a href="#" class="webinar-cta">Reserve Your Spot <i class="fas fa-user-plus"></i></a>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <script>
+    // Tab functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const tabs = document.querySelectorAll('.tab');
+      
+      tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          // Remove active class from all tabs and content
+          document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+          document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+          
+          // Add active class to clicked tab
+          tab.classList.add('active');
+          
+          // Show corresponding content
+          const tabId = tab.getAttribute('data-tab');
+          document.getElementById(tabId).classList.add('active');
+        });
+      });
+    });
+  </script>
+</body>
+</html>

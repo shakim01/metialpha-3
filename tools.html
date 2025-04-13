@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trading Tools - MetiAlpha</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* =====================
+       TOOLS PAGE SPECIFIC STYLES 
+       ===================== */
+    
+    /* Hero Section */
+    .tools-hero {
+      background: linear-gradient(135deg, rgba(52, 152, 219, 0.1), rgba(243, 156, 18, 0.1));
+    }
+    
+    /* Premium Tools Grid */
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin: 3rem 0;
+    }
+    
+    .tool-card {
+      position: relative;
+    }
+    
+    .tool-badge {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background-color: var(--gold);
+      color: var(--dark);
+      padding: 5px 10px;
+      border-radius: 4px;
+      font-weight: 600;
+      font-size: 0.8rem;
+    }
+    
+    .tool-icon {
+      font-size: 2.5rem;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+    
+    .tool-card h3 {
+      margin-bottom: 1rem;
+    }
+    
+    .tool-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 1.5rem;
+    }
+    
+    .price {
+      font-weight: 700;
+      color: var(--gold);
+    }
+    
+    .demo-button {
+      background-color: var(--secondary);
+      color: white;
+      padding: 8px 15px;
+      border-radius: 4px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+    
+    .demo-button:hover {
+      background-color: #2980b9;
+      transform: translateY(-2px);
+    }
+    
+    .featured {
+      border: 2px solid var(--gold);
+    }
+    
+    /* Free Tools Section */
+    .free-tools {
+      margin: 5rem 0;
+    }
+    
+    .free-tools h2 {
+      margin-bottom: 2rem;
+    }
+    
+    .resource-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    
+    .resource-item {
+      display: flex;
+      align-items: center;
+      padding: 15px;
+      transition: all 0.3s;
+    }
+    
+    .resource-item:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+    
+    .resource-item i {
+      margin-right: 10px;
+      color: var(--accent);
+      font-size: 1.2rem;
+    }
+    
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+      .tools-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .resource-list {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="overlay">
+    <!-- =====================
+         NAVIGATION BAR 
+         ===================== -->
+    <nav>
+      <a href="index.html" class="nav-logo">
+        <i class="fas fa-chart-line"></i>
+        <span>MetiAlpha</span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html" class="nav-link"><i class="fas fa-home"></i> Home</a>
+        <a href="about.html" class="nav-link"><i class="fas fa-info-circle"></i> About</a>
+        <a href="education.html" class="nav-link"><i class="fas fa-graduation-cap"></i> Education</a>
+        <a href="strategies.html" class="nav-link"><i class="fas fa-chess"></i> Strategies</a>
+        <a href="tools.html" class="nav-link active"><i class="fas fa-tools"></i> Tools</a>
+        <a href="login.html" class="nav-link nav-cta"><i class="fas fa-sign-in-alt"></i> Login</a>
+      </div>
+    </nav>
+
+    <!-- =====================
+         HERO SECTION 
+         ===================== -->
+    <section class="hero tools-hero">
+      <div class="container">
+        <h1>Professional Trading Suite</h1>
+        <p class="subtitle">Algorithmic assistants that give you the institutional edge</p>
+      </div>
+    </section>
+    
+    <!-- =====================
+         MAIN CONTENT 
+         ===================== -->
+    <div class="container">
+      <!-- Premium Tools Section -->
+      <section class="premium-tools">
+        <h2><i class="fas fa-crown"></i> Premium Tools</h2>
+        <p class="section-intro">Access our professional-grade trading tools designed to give you an institutional advantage</p>
+        
+        <div class="tools-grid">
+          <!-- Tool Card 1 -->
+          <div class="tool-card card">
+            <div class="tool-icon"><i class="fas fa-wave-square"></i></div>
+            <h3>Liquidity Heatmap</h3>
+            <p>Visualize order book depth across 12 major gold exchanges with real-time liquidity analysis to identify key support and resistance levels.</p>
+            <div class="tool-footer">
+              <span class="price">$29/month</span>
+              <a href="#" class="demo-button">Live Demo <i class="fas fa-external-link-alt"></i></a>
+            </div>
+          </div>
+          
+          <!-- Tool Card 2 (Featured) -->
+          <div class="tool-card card featured">
+            <div class="tool-badge">Most Popular</div>
+            <div class="tool-icon"><i class="fas fa-robot"></i></div>
+            <h3>Gold Session Algo</h3>
+            <p>Automated phase detection with trade alerts for optimal entry and exit points during New York and London sessions.</p>
+            <div class="tool-footer">
+              <span class="price">$49/month</span>
+              <a href="#" class="demo-button">Live Demo <i class="fas fa-external-link-alt"></i></a>
+            </div>
+          </div>
+          
+          <!-- Tool Card 3 -->
+          <div class="tool-card card">
+            <div class="tool-icon"><i class="fas fa-chart-pie"></i></div>
+            <h3>Sentiment Analyzer</h3>
+            <p>Real-time market sentiment analysis from news and social media sources to gauge market psychology and potential reversals.</p>
+            <div class="tool-footer">
+              <span class="price">$39/month</span>
+              <a href="#" class="demo-button">Live Demo <i class="fas fa-external-link-alt"></i></a>
+            </div>
+          </div>
+        </div>
+      </section>
+    
+      <!-- Free Tools Section -->
+      <section class="free-tools">
+        <h2><i class="fas fa-gift"></i> Free Resources</h2>
+        <p class="section-intro">Essential tools available to all traders at no cost</p>
+        
+        <div class="resource-list">
+          <a href="#" class="resource-item card">
+            <i class="fas fa-calendar-alt"></i> 
+            <div>
+              <h4>NY Session Economic Calendar</h4>
+              <p>Track high-impact news events with real-time updates</p>
+            </div>
+          </a>
+          
+          <a href="#" class="resource-item card">
+            <i class="fas fa-calculator"></i>
+            <div>
+              <h4>Gold Position Sizer</h4>
+              <p>Calculate optimal position sizes based on your risk parameters</p>
+            </div>
+          </a>
+          
+          <a href="#" class="resource-item card">
+            <i class="fas fa-book"></i>
+            <div>
+              <h4>Central Bank Gold Reserves Tracker</h4>
+              <p>Monitor global central bank gold holdings and flows</p>
+            </div>
+          </a>
+          
+          <a href="#" class="resource-item card">
+            <i class="fas fa-bell"></i>
+            <div>
+              <h4>Price Alert Generator</h4>
+              <p>Set custom price alerts for key XAU/USD levels</p>
+            </div>
+          </a>
+        </div>
+      </section>
+    </div>
+  </div>
+</body>
+</html>
